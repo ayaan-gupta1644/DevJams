@@ -1,5 +1,5 @@
 from databases import Database
-from sqlalchemy import create_engine, MetaData
+from step2 import create_engine, MetaData
 
 DATABASE_URL = "sqlite+aiosqlite:///./test.db"
 
