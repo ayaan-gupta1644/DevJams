@@ -1,5 +1,5 @@
 from sqlalchemy import Table, Column, Integer, String, Float, Date, ForeignKey
-from database import metadata
+from step5a import metadata
 
 users = Table(
     "users",
