@@ -1,17 +1,18 @@
 from fastapi import FastAPI
 from step5a import database, engine, metadata
 import step2
+from contextlib import asynccontextmanager
 
-app = FastAPI()
-
-@app.on_event("startup")
-async def startup():
+@asynccontextmanager
+async def lifespan(app: FastAPI):
     metadata.create_all(engine)
     await database.connect()
+    try:
+        yield
+    finally:
+        await database.disconnect()
 
-@app.on_event("shutdown")
-async def shutdown():
-    await database.disconnect()
+app = FastAPI(lifespan=lifespan)
 
 @app.get("/transactions")
 async def get_transactions():
