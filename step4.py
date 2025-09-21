@@ -2,8 +2,8 @@ from fastapi import FastAPI, HTTPException
 from typing import List
 from datetime import date
 
-from step 2 import Transaction, User, SavingsGoal, Base  # your SQLAlchemy models
-from step 3 import TransactionCreate, TransactionBase, SavingsGoalCreate, SavingsGoalBase  # your Pydantic schemas
+from step2 import Transaction, User, SavingsGoal, Base  # your SQLAlchemy models
+from step3 import TransactionCreate, TransactionBase, SavingsGoalCreate, SavingsGoalBase  # your Pydantic schemas
 from sqlalchemy.orm import Session
 from database import SessionLocal, engine  # your DB session management
 
